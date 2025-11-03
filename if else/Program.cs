@@ -1,75 +1,74 @@
-﻿// The 8 Ball Program //
+﻿using System.ComponentModel.Design;
 
-//= Variables =//
+using System.Runtime.InteropServices.JavaScript;
 
-string name, question, answer;
+int age;
 
-//= Input =//
+char geslacht;
 
-Console.WriteLine("What is your name?");
-name = Console.ReadLine();
-Console.WriteLine("What is your question?");
-question = Console.ReadLine();
+bool ismedewerker;
 
-//= Random Number  =//
+Console.WriteLine("wat is u leeftijd");
 
-Random rnd = new Random();
-int randomNumber = rnd.Next(1, 9);
-//Console.WriteLine(randomNumber); //
+age = Convert.ToInt32(Console.ReadLine());
 
-//= Control Flow =//
-// switch statement to determine answer //
-switch (randomNumber)
+Console.WriteLine("wat is u geslacht? (M,V,X): ");
+
+geslacht = Convert.ToChar(Console.ReadLine().ToUpper());
+
+Console.WriteLine("bent u een mederwerker (true, false)");
+
+ismedewerker = Convert.ToBoolean(Console.ReadLine());
+
+if ((age >= 18 && geslacht == 'V') || ismedewerker)
+
 {
-    case 1:
-        answer = "Yes - Definitely";
-        break;
-    case 2:
-        answer = "It is decidedly so";
-        break;
-    case 3:
-        answer = "Without a doubt";
-        break;
-    case 4:
-        answer = "Reply hazy, try again";
-        break;
-    case 5:
-        answer = "Ask again later";
-        break;
-    case 6:
-        answer = "Better not tell you now";
-        break;
-    case 7:
-        answer = "My sources say no";
-        break;
-    case 8:
-        answer = "Outlook not so good";
-        break;
-    case 9:
-        answer = "Very doubtful";
-        break;
-    default:
-        answer = "Error";
-        break;
+
+    Console.WriteLine("u mag binnen");
+
 }
 
-//= Output =//
-
-// if/else in the case that user leaves name empty //
-if (name == "")
-{
-    Console.WriteLine("Question: "+question);
-}
 else
+
 {
-    Console.WriteLine(name + " asked: " + question);
+
+    Console.WriteLine("u mag niet binnen ");
+
 }
-// if/else in the case that the user doesnt ask a question //
-if (question == "")
+
+// voorbeeld alcohol controle
+
+
+// leeftijd kleiner dan aanj 16 GEEN ALCohol
+
+if (age < 16)
+
 {
-    Console.WriteLine("User did not ask a question.");
+
+    Console.WriteLine("je mag geen alcohol drinken");
+
 }
+
+else if (age < 18)
+
+{
+
+    Console.WriteLine("u mag bier en wijn drinken");
+
+}
+
 else
+
 {
-    Console.WriteLine("8 Ball Answer: " +answer);
+
+    Console.WriteLine("u mag alle drank drinken");
+
+    if (age >= 21)
+
+    {
+
+        Console.WriteLine("je mag ook gokken");
+
+    }
+
 }
