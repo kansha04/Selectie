@@ -1,5 +1,8 @@
 ﻿// Maak een simpel login systeem: //
 
+using System.Diagnostics;
+
+[DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
 internal class Program
 {
     private static void Main(string[] args)
@@ -32,5 +35,10 @@ internal class Program
         {
             System.Console.WriteLine("Error! Try again later.");
         }
+    }
+
+    private string GetDebuggerDisplay()
+    {
+        return ToString();
     }
 }
