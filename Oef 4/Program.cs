@@ -11,9 +11,9 @@ internal class Program
 
         // Login Input // 
         Console.WriteLine("Gebruikersnaam: ");
-        inputgebruiker = Console.ReadLine();
+        inputgebruiker = Console.ReadLine() ?? string.Empty;
         Console.WriteLine("Wachtwoord: ");
-        inputww = Console.ReadLine();
+        inputww = Console.ReadLine() ?? string.Empty;
 
         // Conditional // 
         if (gebruikersnaam == inputgebruiker && wachtwoord == inputww)
