@@ -19,6 +19,7 @@ internal class Program
         double vipPrijs = 0.2;
         int leeftijd;
         bool studentenkaart, vip;
+        double totaalPrijs = 0.0;
 
         // Input //
         Console.WriteLine("Hoe oud ben je?: ");
@@ -27,5 +28,30 @@ internal class Program
         studentenkaart = Convert.ToBoolean(Console.ReadLine());
         Console.WriteLine("Heb je een VIP lidmaatschaap? (true or false): ");
         vip = Convert.ToBoolean(Console.ReadLine());
+
+        // Conditional needs to be fixed // 
+        if (leeftijd >= 12 && leeftijd <65)
+        {
+            totaalPrijs = basisPrijs;
+        }
+        else if (leeftijd >= 12 && leeftijd < 65 && vip == true)
+        {
+            totaalPrijs = basisPrijs - (basisPrijs * vipPrijs);
+        } 
+        else if (leeftijd > 12)
+        {
+            totaalPrijs = kindPrijs;
+        }
+        else if (studentenkaart == true)
+        {
+            totaalPrijs = studentPrijs;
+        }
+        else if (leeftijd > 65)
+        {
+            totaalPrijs = senioren;
+        }
+
+        // Output //
+        System.Console.WriteLine($"Uw totaal is: {totaalPrijs}");
     }
 }
