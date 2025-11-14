@@ -30,28 +30,30 @@ internal class Program
         vip = Convert.ToBoolean(Console.ReadLine());
 
         // Conditional needs to be fixed // 
-        if (leeftijd >= 12 && leeftijd <65)
-        {
-            totaalPrijs = basisPrijs;
-        }
-        else if (leeftijd >= 12 && leeftijd < 65 && vip == true)
-        {
-            totaalPrijs = basisPrijs - (basisPrijs * vipPrijs);
-        } 
-        else if (leeftijd > 12)
+        if (leeftijd < 12)
         {
             totaalPrijs = kindPrijs;
         }
-        else if (studentenkaart == true)
-        {
-            totaalPrijs = studentPrijs;
-        }
-        else if (leeftijd > 65)
+        else if (leeftijd >= 65)
         {
             totaalPrijs = senioren;
         }
+        else if (studentenkaart)
+        {
+            totaalPrijs = studentPrijs;
+        }
+        else
+        {
+            totaalPrijs = basisPrijs;
+        }
+
+        // VIP korting (20%) op de reeds toegewezen prijs
+        if (vip)
+        {
+            totaalPrijs -= totaalPrijs * vipPrijs;
+        }
 
         // Output //
-        System.Console.WriteLine($"Uw totaal is: {totaalPrijs}");
+        Console.WriteLine($"Uw totaal is: €{totaalPrijs:F2}");
     }
 }
